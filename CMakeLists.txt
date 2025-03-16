@@ -7,6 +7,4 @@ add_library(alpha ${SOURCES})
 
 target_include_directories(alpha PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-target_link_libraries(alpha PUBLIC m)
-
 set_target_properties(alpha PROPERTIES C_STANDARD 11 C_STANDARD_REQUIRED ON)
