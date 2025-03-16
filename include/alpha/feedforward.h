@@ -70,4 +70,4 @@ int feedforward_random(feedforward_t *pt_feedforward);
  *	@param pt_feedforward The handle of the feedforward neural network.
  *	@return The result status code. In this case, it'll always return 0.
  */
-int feedforward_forward(feedforward_t *pt_feedforward);
+ int feedforward_forward(feedforward_t *pt_feedforward, double_t *pt_input_buffer, uintmax_t t_input_buffer_size, double_t *pt_output_buffer, uintmax_t t_output_buffer_size);
