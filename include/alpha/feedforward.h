@@ -64,3 +64,10 @@ int feedforward_delete(feedforward_t *pt_feedforward);
  *	@return The result status code. In this case, it'll always return 0.
  */
 int feedforward_random(feedforward_t *pt_feedforward);
+
+/**
+ *	@brief Perform the forward pass of the feedforward neural network.
+ *	@param pt_feedforward The handle of the feedforward neural network.
+ *	@return The result status code. In this case, it'll always return 0.
+ */
+int feedforward_forward(feedforward_t *pt_feedforward);
