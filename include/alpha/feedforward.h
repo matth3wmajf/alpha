@@ -68,6 +68,18 @@ int feedforward_random(feedforward_t *pt_feedforward);
 /**
  *	@brief Perform the forward pass of the feedforward neural network.
  *	@param pt_feedforward The handle of the feedforward neural network.
- *	@return The result status code. In this case, it'll always return 0.
+ *	@return The result status code.
  */
  int feedforward_forward(feedforward_t *pt_feedforward, double_t *pt_input_buffer, uintmax_t t_input_buffer_size, double_t *pt_output_buffer, uintmax_t t_output_buffer_size);
+
+/**
+ *	@brief Perform the backward pass of the feedforward neural network.
+ *	@param pt_feedforward The handle of the feedforward neural network.
+ *	@param pt_input_buffer The input buffer.
+ *	@param t_input_buffer_size The size of the input buffer.
+ *	@param pt_target_buffer The target buffer.
+ *	@param t_target_buffer_size The size of the target buffer.
+ *	@param t_learning_rate The learning rate.
+ *	@return The result status code.
+ */
+int feedforward_backward(feedforward_t *pt_feedforward, double_t *pt_input_buffer, uintmax_t t_input_buffer_size, double_t *pt_target_buffer, uintmax_t t_target_buffer_size, double_t t_learning_rate);

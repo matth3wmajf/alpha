@@ -33,3 +33,43 @@ int numeric_sigmoid(double_t t_x, double_t *pt_y)
 /* Return with success. */
 	return 0;
 }
+
+/* ... */
+int numeric_mse(double_t *pt_output, double_t *pt_target, uintmax_t t_n, double_t *pt_result)
+{
+/*
+ *	The sum.
+ *	We initialize this to zero, although it'll eventually store the sum of the
+ *	squared differences.
+ */
+	double_t l_sum = 0.0;
+
+/* Loop for each output & target value. */
+	for(uintmax_t l_i = 0; l_i < t_n; l_i++)
+	{
+/* Compute the difference. */
+		double_t l_diff = pt_output[l_i] - pt_target[l_i];
+
+/* Square it, and add it to the sum. */
+		l_sum += l_diff * l_diff;
+	}
+
+/* Set the result, which is the sum divided by the number of elements. */
+	*pt_result = l_sum / (double_t)t_n;
+
+/* Return with success. */
+	return 0;
+}
+
+/* ... */
+int numeric_sigmoid_derivative(double_t t_x, double_t *pt_y)
+{
+/*
+ *	Set the output value to the value computed by the sigmoid function's
+ *	derivative.
+ */
+	*pt_y = t_x * (1.0 - t_x);
+
+/* Return with success. */
+	return 0;
+}
