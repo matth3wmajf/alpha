@@ -8,25 +8,25 @@
 typedef struct
 {
 /* The input layer's nodes & the amount of nodes. */
-	double_t *pt_input_layer_buffer;
+	float_t *pt_input_layer_buffer;
 	uintmax_t t_input_layer_buffer_size;
 /* The sizes of the hidden layers & the amount of hidden layer sizes. */
 	uintmax_t *pt_hidden_layer_size_buffer;
 	uintmax_t t_hidden_layer_size_buffer_size;
 /* The weight matrices for the hidden layers. */
-	double_t **ppt_hidden_layer_weight_buffer;
+	float_t **ppt_hidden_layer_weight_buffer;
 	uintmax_t t_hidden_layer_weight_buffer_size;
 /* The bias vectors for the hidden layers. */
-	double_t **ppt_hidden_layer_bias_buffer;
+	float_t **ppt_hidden_layer_bias_buffer;
 	uintmax_t t_hidden_layer_weight_bias_size;
 /* The output layer's nodes & the amount of nodes. */
-	double_t *pt_output_layer_buffer;
+	float_t *pt_output_layer_buffer;
 	uintmax_t t_output_layer_buffer_size;
 /* The output layer's weight matrix. */
-	double_t *pt_output_layer_weight_buffer;
+	float_t *pt_output_layer_weight_buffer;
 	uintmax_t t_output_layer_weight_buffer_size;
 /* The output layer's bias vector. */
-	double_t *pt_output_layer_bias_buffer;
+	float_t *pt_output_layer_bias_buffer;
 	uintmax_t t_output_layer_bias_buffer_size;
 } feedforward_t;
 
@@ -70,7 +70,7 @@ int feedforward_random(feedforward_t *pt_feedforward);
  *	@param pt_feedforward The handle of the feedforward neural network.
  *	@return The result status code.
  */
- int feedforward_forward(feedforward_t *pt_feedforward, double_t *pt_input_buffer, uintmax_t t_input_buffer_size, double_t *pt_output_buffer, uintmax_t t_output_buffer_size);
+ int feedforward_forward(feedforward_t *pt_feedforward, float_t *pt_input_buffer, uintmax_t t_input_buffer_size, float_t *pt_output_buffer, uintmax_t t_output_buffer_size);
 
 /**
  *	@brief Perform the backward pass of the feedforward neural network.
@@ -82,4 +82,4 @@ int feedforward_random(feedforward_t *pt_feedforward);
  *	@param t_learning_rate The learning rate.
  *	@return The result status code.
  */
-int feedforward_backward(feedforward_t *pt_feedforward, double_t *pt_input_buffer, uintmax_t t_input_buffer_size, double_t *pt_target_buffer, uintmax_t t_target_buffer_size, double_t t_learning_rate);
+int feedforward_backward(feedforward_t *pt_feedforward, float_t *pt_input_buffer, uintmax_t t_input_buffer_size, float_t *pt_target_buffer, uintmax_t t_target_buffer_size, float_t t_learning_rate);
