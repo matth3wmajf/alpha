@@ -15,5 +15,5 @@ if(OpenMP_C_FOUND)
 endif()
 
 if(NOT WIN32)
-	target_link_libraries(alpha m)
+	target_link_libraries(alpha PUBLIC m)
 endif()
