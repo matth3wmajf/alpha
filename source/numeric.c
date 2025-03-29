@@ -12,7 +12,7 @@
 int numeric_matmul(const float_t *pt_a, const float_t *pt_b, float_t *pt_c, uintmax_t t_m, uintmax_t t_k, uintmax_t t_n)
 {
 #ifdef _OPENMP
-#pragma omp parallel for collapse(2) schedule(dynamic)
+#pragma omp target teams distribute parallel for collapse(2) schedule(dynamic) map(to: pt_a[0:t_m*t_k], pt_b[0:t_k*t_n]) map(from: pt_c[0:t_m*t_n])
 #endif
 	for(uintmax_t l_i = 0; l_i < t_m; l_i++)
 	{
