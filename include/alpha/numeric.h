@@ -65,15 +65,3 @@ int numeric_softmax(float_t *pt_input, float_t *pt_output, uintmax_t t_n);
  *	@return The result status code. In this case, it'll always return 0.
  */
 int numeric_lm(const float_t *pt_input_buffer, uintmax_t t_m, uintmax_t t_n, float_t *pt_output_buffer, float_t t_epsilon, const float_t *pt_gamma_buffer, const float_t *pt_beta_buffer);
-
-/**
- */
-int numeric_matmul_backward(const float_t *pt_a_buffer, const float_t *pt_b_buffer, const float_t *pt_dc_buffer, float_t *pt_da_buffer, float_t *pt_db_buffer, uintmax_t t_m, uintmax_t t_k, uintmax_t t_n);
-
-/**
- */
-int numeric_softmax_backward(const float_t *pt_softmax_output_buffer, const float_t *pt_dy_buffer, float_t *pt_dx_buffer, uintmax_t t_n);
-
-/**
- */
-int numeric_lm_backward(const float_t *pt_x_buffer, const float_t *pt_y_buffer, const float_t *pt_gamma_buffer, const float_t *pt_dy_buffer, float_t *pt_dx_buffer, float_t *pt_dgamma_buffer, float_t *pt_dbeta_buffer, uintmax_t t_m, uintmax_t t_n, float_t t_epsilon);
