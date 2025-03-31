@@ -78,6 +78,29 @@ int numeric_relu_derivative(float_t t_x, float_t *pt_y)
 }
 
 /* ... */
+int numeric_tanh(float_t t_x, float_t *pt_y)
+{
+/* Set the output value to the ReLU output of the input value. */
+	*pt_y = tanhf(t_x);
+
+/* Return with success. */
+	return 0;
+}
+
+/* ... */
+int numeric_tanh_derivative(float_t t_x, float_t *pt_y)
+{
+/*
+ *	Set the output value to the value computed by the ReLU function's
+ *	derivative.
+ */
+	*pt_y = 1.0f - (powf(tanhf(t_x), 2.0f));
+
+/* Return with success. */
+	return 0;
+}
+
+/* ... */
 int numeric_mse(float_t *pt_output, float_t *pt_target, uintmax_t t_n, float_t *pt_result)
 {
 /*
@@ -97,7 +120,7 @@ int numeric_mse(float_t *pt_output, float_t *pt_target, uintmax_t t_n, float_t *
 		float_t l_diff = pt_output[l_i] - pt_target[l_i];
 
 /* Square it, and add it to the sum. */
-		l_sum += l_diff * l_diff;
+		l_sum += powf(l_diff, 2.0f);
 	}
 
 /* Set the result, which is the sum divided by the number of elements. */

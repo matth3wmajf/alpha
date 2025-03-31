@@ -49,6 +49,22 @@ int numeric_relu(float_t t_x, float_t *pt_y);
 int numeric_relu_derivative(float_t t_x, float_t *pt_y);
 
 /**
+ *	@brief Perform the hyperbolic tangent function on a value.
+ *	@param t_x The input value.
+ *	@param pt_y The output value.
+ *	@return The result status code. In this case, it'll always return 0.
+ */
+ int numeric_tanh(float_t t_x, float_t *pt_y);
+
+ /**
+  *	@brief Perform the hyperbolic tangent function's derivative on a value.
+  *	@param t_x The input value.
+  *	@param pt_y The output value.
+  *	@return The result status code. In this case, it'll always return 0.
+  */
+int numeric_tanh_derivative(float_t t_x, float_t *pt_y);
+
+/**
  *	@brief Perform the mean squared error function on two vectors.
  *	@param pt_output The output vector (values outputted by a neural network).
  *	@param pt_target The target vector (values desired to be outputted by a
