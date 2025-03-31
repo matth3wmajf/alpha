@@ -25,6 +25,30 @@ int numeric_matmul(const float_t *pt_a, const float_t *pt_b, float_t *pt_c, uint
 int numeric_sigmoid(float_t t_x, float_t *pt_y);
 
 /**
+ *	@brief Perform the sigmoid function's derivative on a value.
+ *	@param t_x The input value.
+ *	@param pt_y The output value.
+ *	@return The result status code. In this case, it'll always return 0.
+ */
+int numeric_sigmoid_derivative(float_t t_x, float_t *pt_y);
+
+/**
+ *	@brief Perform the ReLU function on a value.
+ *	@param t_x The input value.
+ *	@param pt_y The output value.
+ *	@return The result status code. In this case, it'll always return 0.
+ */
+int numeric_relu(float_t t_x, float_t *pt_y);
+
+ /**
+  *	@brief Perform the ReLU function's derivative on a value.
+  *	@param t_x The input value.
+  *	@param pt_y The output value.
+  *	@return The result status code. In this case, it'll always return 0.
+  */
+int numeric_relu_derivative(float_t t_x, float_t *pt_y);
+
+/**
  *	@brief Perform the mean squared error function on two vectors.
  *	@param pt_output The output vector (values outputted by a neural network).
  *	@param pt_target The target vector (values desired to be outputted by a
@@ -37,14 +61,6 @@ int numeric_sigmoid(float_t t_x, float_t *pt_y);
 int numeric_mse(float_t *pt_output, float_t *pt_target, uintmax_t t_n, float_t *pt_result);
 
 /**
- *	@brief Perform the sigmoid function's derivative on a value.
- *	@param t_x The input value.
- *	@param pt_y The output value.
- *	@return The result status code. In this case, it'll always return 0.
- */
-int numeric_sigmoid_derivative(float_t t_x, float_t *pt_y);
-
-/**
  *	@brief Perform the softmax function on a vector.
  *	@param pt_input The input vector.
  *	@param pt_output The output vector.
@@ -52,16 +68,3 @@ int numeric_sigmoid_derivative(float_t t_x, float_t *pt_y);
  *	@return The result status code. In this case, it'll always return 0.
  */
 int numeric_softmax(float_t *pt_input, float_t *pt_output, uintmax_t t_n);
-
-/**
- *	@brief Apply layer normalization to an input matrix.
- *	@param pt_input_buffer The pointer to the input matrix (of shape m * n).
- *	@param t_m Number of rows (positions).
- *	@param t_n Number of columns (features).
- *	@param pt_output_buffer Pointer to the output matrix (of shape m * n).
- *	@param t_epsilon A small constant for numerical stability (e.g., 1e-5).
- *	@param pt_gamma_buffer Pointer to the scaling factor (of shape n).
- *	@param pt_beta_buffer Pointer to the bias factor (of shape n).
- *	@return The result status code. In this case, it'll always return 0.
- */
-int numeric_lm(const float_t *pt_input_buffer, uintmax_t t_m, uintmax_t t_n, float_t *pt_output_buffer, float_t t_epsilon, const float_t *pt_gamma_buffer, const float_t *pt_beta_buffer);
