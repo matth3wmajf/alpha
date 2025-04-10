@@ -84,3 +84,14 @@ int numeric_mse(float_t *pt_output, float_t *pt_target, uintmax_t t_n, float_t *
  *	@return The result status code. In this case, it'll always return 0.
  */
 int numeric_softmax(float_t *pt_input, float_t *pt_output, uintmax_t t_n);
+
+/**
+ *  @brief Apply layer normalization to a vector.
+ *  @param pt_input The input vector.
+ *  @param pt_output The output vector.
+ *  @param pt_gamma The scale parameter vector.
+ *  @param pt_beta The shift parameter vector.
+ *  @param t_size The size of the vectors.
+ *  @return The result status code.
+ */
+int numeric_layer_norm(float_t *pt_input, float_t *pt_output, float_t *pt_gamma, float_t *pt_beta, uintmax_t t_size);

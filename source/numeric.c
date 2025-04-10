@@ -154,3 +154,27 @@ int numeric_softmax(float_t *pt_input, float_t *pt_output, uintmax_t t_n)
 /* Return with success. */
 	return 0;
 }
+
+/* ... */
+int numeric_layer_norm(float_t *pt_input, float_t *pt_output, float_t *pt_gamma, float_t *pt_beta, uintmax_t t_size)
+{
+/* Calculate the mean. */
+	float_t l_mean = 0.0f;
+	for(uintmax_t l_i = 0; l_i < t_size; l_i++) l_mean += pt_input[l_i];
+	l_mean /= t_size;
+
+/* Calculate variance. */
+	float_t l_variance = 0.0f;
+	for(uintmax_t l_i = 0; l_i < t_size; l_i++) l_variance += powf(pt_input[l_i] - l_mean, 2.0f);
+	l_variance /= t_size;
+
+/* Add epsilon for numerical stability. */
+	float_t l_epsilon = 1e-5f;
+	float_t l_std_dev = sqrtf(l_variance + l_epsilon);
+
+/* Normalize, scale, and shift. */
+	for(uintmax_t l_i = 0; l_i < t_size; l_i++) pt_output[l_i] = pt_gamma[l_i] * ((pt_input[l_i] - l_mean) / l_std_dev) + pt_beta[l_i];
+
+/* ... */
+	return 0;
+}
