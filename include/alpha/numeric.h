@@ -95,3 +95,13 @@ int numeric_softmax(float_t *pt_input, float_t *pt_output, uintmax_t t_n);
  *  @return The result status code.
  */
 int numeric_layer_norm(float_t *pt_input, float_t *pt_output, float_t *pt_gamma, float_t *pt_beta, uintmax_t t_size);
+
+/**
+ *	@brief Transpose a matrix.
+ *	@param pt_input The input matrix.
+ *	@param pt_output The output (transposed) matrix.
+ *	@param t_rows The number of rows in the input matrix.
+ *	@param t_cols The number of columns in the input matrix.
+ *	@return The result status code. In this case, it'll always return 0.
+ */
+int numeric_transpose(const float_t *pt_input_buffer, float_t *pt_output_buffer, uintmax_t t_r, uintmax_t t_c);

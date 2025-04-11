@@ -178,3 +178,19 @@ int numeric_layer_norm(float_t *pt_input, float_t *pt_output, float_t *pt_gamma,
 /* ... */
 	return 0;
 }
+
+/* ... */
+int numeric_transpose(const float_t *pt_input_buffer, float_t *pt_output_buffer, uintmax_t t_r, uintmax_t t_c)
+{
+/* Transpose the input matrix into the output matrix. */
+#ifdef _OPENMP
+#pragma omp parallel for collapse(2)
+#endif
+	for(uintmax_t l_i = 0; l_i < t_r; l_i++)
+	{
+		for(uintmax_t l_j = 0; l_j < t_c; l_j++) pt_output_buffer[l_j * t_r + l_i] = pt_input_buffer[l_i * t_c + l_j];
+	}
+
+/* Return with success. */
+	return 0;
+}
